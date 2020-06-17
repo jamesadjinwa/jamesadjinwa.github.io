@@ -6,7 +6,9 @@
 ## Case of Github
 
 - Go to the projects page on Github
-- Copy the link on the Clone or download button
+- Click on "Fork" button at the top right coner
+- Go to your forked repository page (not the original one)
+- Copy the link on the "Clone or download" button from forked repositories
 - `git clone <link_copied_in_previous_step`
 - `cd <project_directory_created_after_cloning>`
 - Create a branch and work on it - `git checkout -b <new_branch>`
@@ -25,4 +27,6 @@
 
 ***
 
-*Credits : [@kedark3](https://github.com/kedark3) with this [article](https://opensource.com/article/19/7/create-pull-request-github?utm_campaign=intrel)*
+*Credits :
+    - [@kedark3](https://github.com/kedark3) with this [article](https://opensource.com/article/19/7/create-pull-request-github?utm_campaign=intrel)*
+    - [@galenemco](https://twitter.com/galenemco) for this [article](https://opensource.com/article/19/11/first-open-source-contribution-fork-clone)
