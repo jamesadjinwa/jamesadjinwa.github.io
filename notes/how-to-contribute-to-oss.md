@@ -1,6 +1,6 @@
 # How to Contribute to Opensource like a Pro
 
-- First choose a project
+- First choose a project ( I started with )
 - Create a directory on your PC containing all repositories of projects you wish to contribute to
 
 ## Case of Github
@@ -22,3 +22,7 @@
 ## Case of Gitlab
 
 *To be continued* :)
+
+***
+
+*Credits : [@kedark3](https://github.com/kedark3) with this [article](https://opensource.com/article/19/7/create-pull-request-github?utm_campaign=intrel)*
