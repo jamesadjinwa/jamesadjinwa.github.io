@@ -29,5 +29,5 @@
 
 ## Credits
 
-- [@kedark3](https://github.com/kedark3) with this [article](https://opensource.com/article/19/7/create-pull-request-github?utm_campaign=intrel)
+- [@kedark3](https://github.com/kedark3) for this [article](https://opensource.com/article/19/7/create-pull-request-github?utm_campaign=intrel)
 - [@galenemco](https://twitter.com/galenemco) for this [article](https://opensource.com/article/19/11/first-open-source-contribution-fork-clone)
