@@ -1,0 +1,24 @@
+# How to Contribute to Opensource like a Pro
+
+- First choose a project
+- Create a directory on your PC containing all repositories of projects you wish to contribute to
+
+## Case of Github
+
+- Go to the projects page on Github
+- Copy the link on the Clone or download button
+- `git clone <link_copied_in_previous_step`
+- `cd <project_directory_created_after_cloning>`
+- Create a branch and work on it - `git checkout -b <new_branch>`
+- `git remote add upstream <url_to_original_repository>`
+- Make a change (adding or modifying an exsiting file)
+- `git add <new_file>` or
+- `git commit -m "<commit_message>"`
+- `git push -u origin <new_branch>`
+- Go to on your forked projects page and click on "*Compare & pull request*" button
+- Leave a comment (optional)
+- Click on "*Create pull request*" button.
+
+## Case of Gitlab
+
+*To be continued* :)
