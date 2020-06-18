@@ -1,6 +1,6 @@
 # How to Contribute to Opensource like a Pro
 
-- First choose a project ( I started with )
+- First choose a project ( I started with [num2words](https://github.com/savoirfairelinux/num2words))
 - Create a directory on your PC containing all repositories of projects you wish to contribute to
 
 ## Case of Github
