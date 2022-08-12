@@ -1,6 +1,6 @@
 # James ADJINWA
 
-Passionate IT professional with LPIC-3 Certification
+Passionate IT professional
 
 # My Notes
 
