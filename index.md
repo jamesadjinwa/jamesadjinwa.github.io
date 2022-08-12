@@ -8,7 +8,7 @@ I take note of what I do and I wish to share it with you. See it [here](notes/in
 
 # What I'm working
 
-- Use ansible to deploy docker containers
+- [Use ansible to deploy docker containers](projects/ansible2docker)
 
 # What I'm learning
 
