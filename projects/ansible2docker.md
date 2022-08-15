@@ -68,4 +68,4 @@ networks:
 ```
 
 ***
-[Home](https://jamesadjinwa.github.io/) | [Projects](projects/index) | Deploying apps on my Linode
+[Home](https://jamesadjinwa.github.io/) | [Projects](index) | Deploying apps on my Linode
