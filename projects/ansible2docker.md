@@ -66,3 +66,6 @@ networks:
   back-tier:
 
 ```
+
+***
+[Home](https://jamesadjinwa.github.io/) | [Projects](projects/index) | Deploying apps on my Linode
