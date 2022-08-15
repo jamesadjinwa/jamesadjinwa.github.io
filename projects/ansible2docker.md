@@ -4,7 +4,7 @@ After learninng new things on docker and ansible, I thought I should put into pr
 The idea here is to be able to deploy on my Linode machine, docker containers using Ansible.
 I want to have some sort of cluster, a simple infrastructure to start. The ability to update my setup without touching the data already created
 and used. Since I'm more confortable with diagrams, this is what setup looks like:
-![Setup diagram{caption=Simplified diagram of the setup }](/ansible2docker_infra.png)
+![Setup diagram{caption=Simplified diagram of the setup.}](ansible2docker_infra.png)
 
 ## Docker compose file
 
