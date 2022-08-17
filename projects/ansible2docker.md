@@ -5,7 +5,17 @@ The idea here is to be able to deploy on my Linode machine, docker containers us
 I want to have some sort of cluster, a simple infrastructure to start. The ability to update my setup without touching the data already created
 and used. Since I'm more confortable with diagrams, this is what setup looks like:
 
-![Setup diagram{caption=Simplified diagram of the setup.}](ansible2docker_infra.png)
+![Setup diagram](ansible2docker_infra.png) <br>
+*Simplified diagram of the setup.*
+
+We can also visualize the setup using docker-compose-viz from PMSIpilot. To do this we can run the following command in the same folder as docker-compose.yml file:
+```bash
+docker run --rm -it --name dcv -v $(pwd):/input pmsipilot/docker-compose-viz render -m image docker-compose.yml
+```
+
+The result is a docker-compose.png file:
+
+![Docker compose visualize](docker-compose.png)
 
 ## Docker compose file
 
