@@ -78,12 +78,117 @@ networks:
 
 ```
 
+## Ansible playbook for services deployment
+
+The following playbook prepares the docker host and deploys the services define in the docker-compose file:
+
+```yaml
+---
+- hosts: node
+  become: yes
+
+
+  tasks:
+    - name: Install Docker dependencies
+      apt:
+        name: "{{ item }}"
+        state: present
+        update_cache: yes
+      loop:
+        - ca-certificates
+        - curl
+        - gnupg
+        - lsb-release
+        - python3-pip
+
+    - name: Setup official Docker repo
+      block:
+        - name: Add repo GPG key
+          apt_key:
+            url: https://download.docker.com/linux/debian/gpg
+            state: present
+        - name: Add Docker repository
+          apt_repository:
+            repo: "deb https://download.docker.com/linux/debian {{ ansible_distribution_release }} stable"
+            state: present
+
+    - name: Install Docker
+      apt:
+        name: "{{ item }}"
+        state: latest
+        update_cache: yes
+      loop:
+        - docker-ce
+        - docker-ce-cli
+        - containerd.io
+        - docker-compose-plugin
+
+    - name: Install Docker Module for Python
+      pip:
+        name: "{{ item }}"
+      loop:
+        - docker
+        - docker-compose
+
+    - name: Start Docker service
+      service:
+        name: docker
+        state: started
+        enabled: yes
+
+    - name: Create Project folder
+      file:
+        path: projectfiles
+        state: directory
+        mode: '0700'
+
+    - name: Copy project files on docker host
+      copy:
+        src: "{{ item }}"
+        dest: projectfiles/
+      with_items:
+        - codimd.config
+        - haproxy.config
+        - postgres.config
+        - haproxy
+        - nginx
+        - docker-compose.yml
+        - .dockerignore
+
+    - name: Start Docker Compose services
+      docker_compose:
+        project_src: projectfiles
+        state: present
+      register: output
+
+    - ansible.builtin.debug:
+              var: output
+
+    - name: Destroy existing services
+      docker_compose:
+        project_src: projectfiles
+        state: absent
+      tags: destroy
+
+    - name: Destroy Project folder
+      file:
+        path: projectfiles
+        state: absent
+      tags: destroy
+
+  handlers:
+    - name: Restart docker
+      service:
+        name: docker
+        state: restarted
+```
+
 ## Integrate SSL certs and exposing port 443 for HTTPS
 
 It is good to have an app that can be used on the Internet by anyone. But using such an app with unencrypted traffic is really ... I'm sure you understand the point :)
 SSL certs are freely available thanks to LetsEncrypt. 
 The **[acme_certificate](https://docs.ansible.com/ansible/latest/collections/community/crypto/acme_certificate_module.html)** certificates can be used to create LetsEncrypt certs.
-This module is base on the ACME protocol. The challenge type used here is **http-01**. We need a web server to prepare and validate the challenge. We added the following to our docker-compose file:
+This module is base on the ACME protocol. The challenge type used here is **http-01**. We need a web server to prepare and validate the challenge. So we added the following to our docker-compose file:
 
 ```yaml
 nginx:
