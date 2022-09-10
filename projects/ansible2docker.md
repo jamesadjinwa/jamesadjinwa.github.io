@@ -15,7 +15,9 @@ docker run --rm -it --name dcv -v $(pwd):/input pmsipilot/docker-compose-viz ren
 
 The result is a docker-compose.png file:
 
-![Docker compose visualize](docker-compose.png)
+![Docker compose visualize](docker-compose.png)<br>
+*Docker-compose visualize*
+
 
 ## Docker compose file
 
@@ -68,13 +70,32 @@ services:
 volumes:
   haproxy_data:
   codimd_uploads:
-  # mariadb_data:
   postgres_data:
 
 networks:
   front-tier:
   back-tier:
 
+```
+
+## Integrate SSL certs and exposing port 443 for HTTPS
+
+It is good to have an app that can be used on the Internet by anyone. But using such an app with unencrypted traffic is really ... I'm sure you understand the point :)
+SSL certs are freely available thanks to LetsEncrypt. 
+The **[acme_certificate](https://docs.ansible.com/ansible/latest/collections/community/crypto/acme_certificate_module.html)** certificates can be used to create LetsEncrypt certs.
+This module is base on the ACME protocol. The challenge type used here is **http-01**. We need a web server to prepare and validate the challenge. We added the following to our docker-compose file:
+
+```yaml
+nginx:
+  image: nginx
+  container_name: nginx
+  restart: always
+  volumes:
+    - ./nginx:/var/www
+  environment:
+    - NGINX_PORT=80
+  networks:
+    - back-tier
 ```
 
 ***
