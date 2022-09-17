@@ -8,7 +8,7 @@ My name is *James Adjinwa* and I am just a passionate IT professional.
 
 I take note of what I do and I wish to share it with you. See it [here](notes/index).
 
-## What I'm working
+## What I'm working on
 
 - [Deploy Docker Containers using Ansible](projects/ansible2docker)
 
