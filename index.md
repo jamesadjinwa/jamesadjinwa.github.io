@@ -1,6 +1,7 @@
 # Intro
 
 Hi,
+
 My name is *James Adjinwa* and I am just a passionate IT professional.
 
 ## My Notes
