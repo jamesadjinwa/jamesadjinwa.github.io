@@ -6,7 +6,7 @@ My name is *James Adjinwa* and I am just a passionate IT professional.
 
 ## My Notes
 
-I take note of what I do and I wish to share it with you. See it [here](notes/index)
+I take note of what I do and I wish to share it with you. See it [here](notes/index).
 
 ## What I'm working
 
