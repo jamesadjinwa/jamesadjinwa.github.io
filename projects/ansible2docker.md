@@ -187,6 +187,7 @@ The following playbook prepares the docker host and deploys the services define 
 
 It is good to have an app that can be used on the Internet by anyone. But using such an app with unencrypted traffic is really ... I'm sure you understand the point :)
 SSL certs are freely available thanks to LetsEncrypt. 
+The goal here is to generate or renew SSL certificates for multiple domains at once.
 The **[acme_certificate](https://docs.ansible.com/ansible/latest/collections/community/crypto/acme_certificate_module.html)** certificates can be used to create LetsEncrypt certs.
 This module is base on the ACME protocol. The challenge type used here is **http-01**. We need a web server to prepare and validate the challenge. So we added the following to our docker-compose file:
 
@@ -202,6 +203,8 @@ nginx:
   networks:
     - back-tier
 ```
+
+A problem we come accros is that everytime we execute the playbook for the first time it generates an error at task named "Begin LetsEncrypt challenges".
 
 ***
 [Home](https://jamesadjinwa.github.io/) | [Projects](index) | Deploying apps on my Linode
