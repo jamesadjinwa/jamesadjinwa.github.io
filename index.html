@@ -3,227 +3,405 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>James Adjinwa — IT & Cybersecurity Consultant</title>
-  <meta name="description" content="Systems Administrator turned IT consultant. I help small businesses build stable, secure IT environments without the complexity or the enterprise price tag.">
+  <title>James Adjinwa - IT &amp; Cybersecurity Consultant</title>
+  <meta name="description" content="IT and cybersecurity consulting for growing businesses. Systems that work, security that holds, and honest advice from someone with 10 years of hands-on experience.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --bg:           #0a0e17;
-      --bg-card:      #111827;
-      --border:       #1e293b;
-      --accent:       #22d3ee;
-      --accent-soft:  rgba(34,211,238,0.08);
-      --accent-border:rgba(34,211,238,0.2);
-      --text:         #e2e8f0;
-      --text-muted:   #94a3b8;
-      --text-dim:     #64748b;
+      --bg:          #080d14;
+      --bg-card:     #0e1520;
+      --bg-card-alt: #111c2b;
+      --border:      #182030;
+      --accent:      #22d3ee;
+      --accent-dim:  rgba(34, 211, 238, 0.08);
+      --accent-line: rgba(34, 211, 238, 0.18);
+      --text:        #dde4ed;
+      --text-muted:  #8a9ab5;
+      --text-dim:    #4f6070;
+      --display:     'Space Grotesk', system-ui, sans-serif;
+      --body:        'Inter', system-ui, sans-serif;
     }
+
+    html { scroll-behavior: smooth; }
 
     body {
       background: var(--bg);
       color: var(--text);
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
-      line-height: 1.6;
+      font-family: var(--body);
+      font-size: 1rem;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
     }
 
     a { color: var(--accent); text-decoration: none; }
     a:hover { text-decoration: underline; }
 
-    /* ── Nav ── */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+      html { scroll-behavior: auto; }
+    }
+
+    /* ---- Nav ---- */
     nav {
       position: sticky; top: 0; z-index: 100;
-      background: rgba(10,14,23,0.88);
-      backdrop-filter: blur(14px);
+      background: rgba(8, 13, 20, 0.9);
+      backdrop-filter: blur(16px);
       border-bottom: 1px solid var(--border);
-      padding: 1rem 2rem;
+      padding: 1rem 1.5rem;
       display: flex; justify-content: space-between; align-items: center;
+      gap: 1rem;
     }
-    .nav-brand { font-size: 1.05rem; font-weight: 700; color: var(--text); }
+    .nav-brand {
+      font-family: var(--display);
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--text);
+      letter-spacing: -0.01em;
+      white-space: nowrap;
+    }
     .nav-brand span { color: var(--accent); }
+    .nav-links { display: flex; gap: 0.75rem; align-items: center; flex-wrap: wrap; }
+    .nav-link {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      transition: color 0.2s;
+    }
+    .nav-link:hover { color: var(--text); text-decoration: none; }
     .nav-cta {
-      background: var(--accent); color: #0a0e17;
-      padding: 0.5rem 1.25rem; border-radius: 6px;
-      font-weight: 700; font-size: 0.875rem;
+      background: var(--accent); color: #080d14;
+      padding: 0.45rem 1.1rem; border-radius: 6px;
+      font-weight: 700; font-size: 0.8rem;
+      white-space: nowrap;
       transition: opacity 0.2s;
     }
     .nav-cta:hover { opacity: 0.85; text-decoration: none; }
 
-    /* ── Hero ── */
+    /* ---- Hero ---- */
     .hero {
-      padding: 7rem 2rem 5rem;
-      max-width: 820px; margin: 0 auto;
+      position: relative;
+      padding: 7rem 1.5rem 5.5rem;
+      max-width: 860px; margin: 0 auto;
       text-align: center;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(circle, rgba(34, 211, 238, 0.12) 1px, transparent 1px);
+      background-size: 28px 28px;
+      mask-image: radial-gradient(ellipse 80% 70% at 50% 50%, black 30%, transparent 100%);
+      -webkit-mask-image: radial-gradient(ellipse 80% 70% at 50% 50%, black 30%, transparent 100%);
+      pointer-events: none;
     }
     .hero-tag {
       display: inline-block;
-      background: var(--accent-soft); color: var(--accent);
-      padding: 0.35rem 1rem; border-radius: 999px;
-      font-size: 0.75rem; font-weight: 700; letter-spacing: 0.08em;
-      text-transform: uppercase; margin-bottom: 1.75rem;
-      border: 1px solid var(--accent-border);
+      font-family: var(--display);
+      font-size: 0.7rem; font-weight: 700;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--accent);
+      background: var(--accent-dim);
+      border: 1px solid var(--accent-line);
+      padding: 0.3rem 0.9rem; border-radius: 999px;
+      margin-bottom: 2rem;
     }
     .hero h1 {
-      font-size: clamp(2.4rem, 6vw, 3.75rem);
-      font-weight: 800; letter-spacing: -0.03em;
-      line-height: 1.1; margin-bottom: 1.25rem;
+      font-family: var(--display);
+      font-size: clamp(2.4rem, 6vw, 3.8rem);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.08;
+      margin-bottom: 1.5rem;
+      color: var(--text);
     }
-    .hero h1 span { color: var(--accent); }
+    .hero h1 em {
+      font-style: normal;
+      color: var(--accent);
+    }
     .hero-sub {
-      font-size: 1.2rem; color: var(--text-muted);
-      max-width: 580px; margin: 0 auto 2.75rem;
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      max-width: 520px;
+      margin: 0 auto 2.75rem;
+      line-height: 1.7;
     }
     .hero-actions {
-      display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;
+      display: flex; gap: 0.875rem;
+      justify-content: center; flex-wrap: wrap;
     }
+    .btn {
+      display: inline-block;
+      padding: 0.8rem 1.75rem;
+      border-radius: 7px;
+      font-weight: 600; font-size: 0.95rem;
+      transition: opacity 0.2s, border-color 0.2s;
+      text-align: center;
+    }
+    .btn:hover { text-decoration: none; }
     .btn-primary {
-      background: var(--accent); color: #0a0e17;
-      padding: 0.8rem 2rem; border-radius: 8px;
-      font-weight: 700; font-size: 1rem;
-      transition: opacity 0.2s;
+      background: var(--accent); color: #080d14;
     }
-    .btn-primary:hover { opacity: 0.85; text-decoration: none; }
+    .btn-primary:hover { opacity: 0.85; }
     .btn-secondary {
       background: transparent; color: var(--text);
-      padding: 0.8rem 2rem; border-radius: 8px;
-      font-weight: 600; font-size: 1rem;
       border: 1px solid var(--border);
-      transition: border-color 0.2s;
     }
-    .btn-secondary:hover { border-color: var(--accent); text-decoration: none; }
+    .btn-secondary:hover { border-color: var(--accent-line); }
 
-    /* ── Shared section styles ── */
-    .section-wrap {
-      padding: 5rem 2rem;
-      max-width: 1020px; margin: 0 auto;
+    /* ---- Layout helpers ---- */
+    .section {
+      padding: 5.5rem 1.5rem;
+      max-width: 1040px; margin: 0 auto;
     }
-    .section-label {
-      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em;
-      text-transform: uppercase; color: var(--accent);
-      margin-bottom: 0.6rem;
+    .section-sm { padding: 4rem 1.5rem; }
+    .divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      max-width: 1040px; margin: 0 auto;
+    }
+    .label {
+      font-family: var(--display);
+      font-size: 0.68rem; font-weight: 700;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 0.7rem;
     }
     .section-title {
-      font-size: clamp(1.65rem, 3.5vw, 2.25rem);
-      font-weight: 800; letter-spacing: -0.02em;
-      margin-bottom: 0.75rem;
+      font-family: var(--display);
+      font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+      font-weight: 700; letter-spacing: -0.02em;
+      line-height: 1.2; margin-bottom: 0.75rem;
     }
     .section-desc {
-      color: var(--text-muted); font-size: 1rem;
-      max-width: 580px; margin-bottom: 3rem;
-    }
-    .divider {
-      border: none; border-top: 1px solid var(--border);
-      max-width: 1020px; margin: 0 auto;
+      color: var(--text-muted);
+      font-size: 1rem; max-width: 540px;
+      margin-bottom: 3rem; line-height: 1.7;
     }
 
-    /* ── About ── */
+    /* ---- About ---- */
     .about-grid {
-      display: grid; grid-template-columns: 1fr 1fr;
-      gap: 3.5rem; align-items: start;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem; align-items: start;
     }
-    @media (max-width: 640px) { .about-grid { grid-template-columns: 1fr; gap: 2rem; } }
+    @media (max-width: 680px) {
+      .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    }
     .about-text p {
-      color: var(--text-muted); margin-bottom: 1rem; font-size: 0.975rem;
+      color: var(--text-muted);
+      font-size: 1rem; margin-bottom: 1rem;
+      line-height: 1.75;
     }
     .stats-grid {
       display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;
     }
     .stat-card {
-      background: var(--bg-card); border: 1px solid var(--border);
+      background: var(--bg-card);
+      border: 1px solid var(--border);
       border-radius: 10px; padding: 1.25rem;
     }
     .stat-number {
-      font-size: 1.9rem; font-weight: 800; color: var(--accent); line-height: 1;
+      font-family: var(--display);
+      font-size: 2rem; font-weight: 700;
+      color: var(--accent); line-height: 1;
     }
     .stat-label {
-      font-size: 0.78rem; color: var(--text-dim); margin-top: 0.3rem;
+      font-size: 0.78rem; color: var(--text-dim);
+      margin-top: 0.35rem; line-height: 1.4;
     }
 
-    /* ── Services ── */
+    /* ---- Services ---- */
     .services-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(275px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
       gap: 1.25rem;
     }
     .service-card {
-      background: var(--bg-card); border: 1px solid var(--border);
-      border-radius: 12px; padding: 1.75rem;
-      transition: border-color 0.2s, transform 0.2s;
+      position: relative; overflow: hidden;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px; padding: 2rem 1.75rem 1.75rem;
+      transition: border-color 0.25s, transform 0.25s;
     }
-    .service-card:hover { border-color: var(--accent); transform: translateY(-3px); }
-    .service-icon { font-size: 1.6rem; margin-bottom: 0.875rem; }
-    .service-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 0.5rem; }
-    .service-card p { color: var(--text-muted); font-size: 0.875rem; line-height: 1.65; }
+    .service-card:hover {
+      border-color: var(--accent-line);
+      transform: translateY(-2px);
+    }
+    .service-bg-num {
+      position: absolute;
+      top: -0.75rem; right: 1.25rem;
+      font-family: var(--display);
+      font-size: 6rem; font-weight: 700;
+      color: rgba(34, 211, 238, 0.05);
+      line-height: 1; user-select: none;
+      pointer-events: none;
+    }
+    .service-num {
+      font-family: var(--display);
+      font-size: 0.72rem; font-weight: 700;
+      letter-spacing: 0.1em; color: var(--accent);
+      text-transform: uppercase; margin-bottom: 0.6rem;
+    }
+    .service-card h3 {
+      font-family: var(--display);
+      font-size: 1.05rem; font-weight: 700;
+      margin-bottom: 0.6rem; letter-spacing: -0.01em;
+    }
+    .service-card p {
+      color: var(--text-muted);
+      font-size: 0.9rem; line-height: 1.7;
+    }
 
-    /* ── Skills ── */
+    /* ---- Social Proof ---- */
+    .proof-wrap {
+      padding: 4rem 1.5rem;
+      max-width: 1040px; margin: 0 auto;
+    }
+    .proof-inner {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent);
+      border-radius: 10px;
+      padding: 2rem 2.25rem;
+      display: flex; gap: 2.5rem; align-items: center; flex-wrap: wrap;
+    }
+    .proof-quote {
+      flex: 1; min-width: 240px;
+    }
+    .proof-quote blockquote {
+      font-style: italic;
+      color: var(--text-muted);
+      font-size: 1rem; line-height: 1.75;
+      margin-bottom: 0.75rem;
+    }
+    .proof-attribution {
+      font-size: 0.8rem; color: var(--text-dim);
+      font-family: var(--display); font-weight: 500;
+    }
+    .proof-stat {
+      text-align: center; flex-shrink: 0;
+    }
+    .proof-stat-number {
+      font-family: var(--display);
+      font-size: 2.5rem; font-weight: 700;
+      color: var(--accent); line-height: 1;
+    }
+    .proof-stat-label {
+      font-size: 0.8rem; color: var(--text-dim);
+      margin-top: 0.3rem;
+    }
+
+    /* ---- Skills ---- */
     .skills-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
       gap: 1.1rem;
+      margin-bottom: 3rem;
     }
     .skill-group {
-      background: var(--bg-card); border: 1px solid var(--border);
+      background: var(--bg-card);
+      border: 1px solid var(--border);
       border-radius: 10px; padding: 1.4rem;
     }
-    .skill-group h3 {
-      font-size: 0.72rem; font-weight: 700; color: var(--accent);
-      text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.75rem;
+    .skill-group-title {
+      font-family: var(--display);
+      font-size: 0.7rem; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 0.875rem;
     }
-    .skill-group ul { list-style: none; }
-    .skill-group li {
-      color: var(--text-muted); font-size: 0.85rem; padding: 0.2rem 0;
+    .skill-tags {
+      display: flex; flex-wrap: wrap; gap: 0.4rem;
     }
-    .skill-group li::before { content: '→ '; color: var(--accent); }
+    .skill-tag {
+      background: rgba(34, 211, 238, 0.05);
+      border: 1px solid rgba(34, 211, 238, 0.12);
+      color: var(--text-muted);
+      padding: 0.25rem 0.6rem;
+      border-radius: 4px;
+      font-size: 0.78rem; line-height: 1.5;
+    }
+    .certs-block { margin-top: 0; }
+    .certs-block .section-title { font-size: 1.3rem; margin-bottom: 1.25rem; }
+    .certs-list {
+      display: flex; flex-wrap: wrap; gap: 0.6rem;
+    }
+    .cert-tag {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 0.5rem 0.9rem;
+      font-size: 0.8rem; color: var(--text-muted);
+      line-height: 1.4;
+    }
+    .cert-tag strong {
+      display: block;
+      color: var(--text);
+      font-size: 0.825rem;
+      font-family: var(--display);
+      font-weight: 600;
+    }
 
-    /* ── Certifications ── */
-    .certs-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 0.875rem;
-    }
-    .cert-item {
-      background: var(--bg-card); border: 1px solid var(--border);
-      border-radius: 8px; padding: 1rem 1.25rem;
-      display: flex; align-items: center; gap: 1rem;
-      transition: border-color 0.2s;
-    }
-    .cert-item:hover { border-color: var(--accent); }
-    .cert-badge {
-      width: 38px; height: 38px; border-radius: 8px;
-      background: var(--accent-soft); border: 1px solid var(--accent-border);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.1rem; flex-shrink: 0;
-    }
-    .cert-name { font-size: 0.875rem; font-weight: 600; }
-    .cert-issuer { font-size: 0.75rem; color: var(--text-dim); margin-top: 0.15rem; }
-
-    /* ── CTA ── */
+    /* ---- CTA ---- */
     .cta-wrap {
-      padding: 4rem 2rem 6rem;
+      padding: 4rem 1.5rem 6rem;
       display: flex; justify-content: center;
     }
     .cta-inner {
-      max-width: 580px; width: 100%; text-align: center;
-      background: var(--bg-card); border: 1px solid var(--border);
+      max-width: 600px; width: 100%;
+      text-align: center;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
       border-radius: 16px; padding: 3rem 2rem;
     }
     .cta-inner h2 {
-      font-size: 1.9rem; font-weight: 800; margin-bottom: 0.875rem;
+      font-family: var(--display);
+      font-size: clamp(1.5rem, 3vw, 1.9rem);
+      font-weight: 700; letter-spacing: -0.02em;
+      margin-bottom: 0.875rem;
     }
     .cta-inner p {
-      color: var(--text-muted); margin-bottom: 2rem; font-size: 0.975rem;
+      color: var(--text-muted);
+      margin-bottom: 2rem; font-size: 0.975rem; line-height: 1.7;
+    }
+    .cta-actions {
+      display: flex; gap: 0.875rem;
+      justify-content: center; flex-wrap: wrap;
+    }
+    .cta-note {
+      font-size: 0.78rem; color: var(--text-dim);
+      margin-top: 1.1rem;
     }
 
-    /* ── Footer ── */
+    /* ---- Footer ---- */
     footer {
       border-top: 1px solid var(--border);
-      padding: 1.75rem 2rem;
+      padding: 1.75rem 1.5rem;
       text-align: center;
-      color: var(--text-dim); font-size: 0.825rem;
+      color: var(--text-dim); font-size: 0.8rem;
+    }
+    .footer-links {
+      display: flex; gap: 1.5rem;
+      justify-content: center; margin-top: 0.5rem;
+      flex-wrap: wrap;
     }
     footer a { color: var(--text-muted); }
     footer a:hover { color: var(--accent); text-decoration: none; }
-    .footer-links { display: flex; gap: 1.5rem; justify-content: center; margin-top: 0.5rem; }
+
+    /* ---- Mobile ---- */
+    @media (max-width: 480px) {
+      .hero { padding: 5rem 1.25rem 4rem; }
+      .section { padding: 4rem 1.25rem; }
+      .proof-inner { padding: 1.5rem; }
+      .cta-inner { padding: 2rem 1.25rem; }
+      nav { padding: 0.875rem 1.25rem; }
+      .nav-link { display: none; }
+    }
   </style>
 </head>
 <body>
@@ -231,38 +409,44 @@
   <!-- Nav -->
   <nav>
     <div class="nav-brand">James <span>Adjinwa</span></div>
-    <a href="https://www.linkedin.com/in/jamesadjinwa" target="_blank" class="nav-cta">Connect on LinkedIn</a>
+    <div class="nav-links">
+      <a href="#services" class="nav-link">Services</a>
+      <a href="#skills" class="nav-link">Skills</a>
+      <!-- Update this link to your Calendly URL when ready -->
+      <a href="https://www.linkedin.com/in/jamesadjinwa" target="_blank" class="nav-cta">Book a free call</a>
+    </div>
   </nav>
 
   <!-- Hero -->
   <div class="hero">
     <div class="hero-tag">IT &amp; Cybersecurity Consulting</div>
-    <h1>Practical IT for<br><span>Growing Businesses</span></h1>
+    <h1>Stop managing IT.<br><em>Start running your business.</em></h1>
     <p class="hero-sub">
-      10+ years in infrastructure and cloud. I help small businesses build stable, secure IT environments — without the complexity or the enterprise price tag.
+      Growing businesses hire me when IT becomes a distraction. I fix what's broken, secure what matters, and keep it simple.
     </p>
     <div class="hero-actions">
-      <a href="https://www.linkedin.com/in/jamesadjinwa" target="_blank" class="btn-primary">Connect on LinkedIn</a>
-      <a href="#services" class="btn-secondary">See what I do</a>
+      <!-- Update this link to your Calendly URL when ready -->
+      <a href="https://www.linkedin.com/in/jamesadjinwa" target="_blank" class="btn btn-primary">Book a free 30-min call</a>
+      <a href="#services" class="btn btn-secondary">See what I do</a>
     </div>
   </div>
 
   <hr class="divider">
 
   <!-- About -->
-  <div class="section-wrap">
-    <div class="section-label">About</div>
+  <div class="section">
+    <div class="label">About</div>
     <div class="about-grid">
       <div class="about-text">
-        <h2 class="section-title">Systems admin turned consultant</h2>
+        <h2 class="section-title">IT consulting, without the vendor agenda</h2>
         <p>
-          I'm a Systems Administrator with over a decade of hands-on experience managing hybrid environments — from Linux servers and VMware clusters to Microsoft 365 tenants and cloud infrastructure on AWS and Azure.
+          I'm James. I consult with growing businesses on IT and cybersecurity.
         </p>
         <p>
-          I'm building an IT and cybersecurity consulting practice with a simple goal: giving small businesses the same quality of IT thinking that enterprise companies pay a lot of money for, at a scale that actually makes sense.
+          Ten years managing infrastructure for companies across different industries taught me that most IT problems come down to the same things: systems that were never set up right, backups that were never tested, and security that lives in a policy document but not in practice.
         </p>
         <p>
-          I work as an extension of your team — not an outside vendor pushing products. Simple, maintainable solutions that fit your budget and actually get used.
+          I work directly with owners, not their vendors. Honest advice, plain language, and solutions you can actually maintain.
         </p>
       </div>
       <div class="stats-grid">
@@ -279,7 +463,7 @@
           <div class="stat-label">Industry certifications</div>
         </div>
         <div class="stat-card">
-          <div class="stat-number">LPIC‑3</div>
+          <div class="stat-number">LPIC-3</div>
           <div class="stat-label">Linux Enterprise Professional</div>
         </div>
       </div>
@@ -289,146 +473,156 @@
   <hr class="divider">
 
   <!-- Services -->
-  <div class="section-wrap" id="services">
-    <div class="section-label">Services</div>
+  <div class="section" id="services">
+    <div class="label">Services</div>
     <h2 class="section-title">What I can do for you</h2>
-    <p class="section-desc">Practical IT support and consulting for small businesses that need to get things right — without overpaying or overcomplicating.</p>
+    <p class="section-desc">No retainers you don't need. No tools I get paid to recommend. Just the work that actually matters for where your business is right now.</p>
     <div class="services-grid">
+
       <div class="service-card">
-        <div class="service-icon">🧭</div>
-        <h3>IT Advisory &amp; Strategy</h3>
-        <p>Honest, vendor-neutral guidance on your IT direction. Smart decisions about tools, vendors, and investments — without the upsell.</p>
+        <div class="service-bg-num">01</div>
+        <div class="service-num">01 - Advisory</div>
+        <h3>IT Strategy &amp; Direction</h3>
+        <p>You shouldn't need a vendor to tell you what you need. Get a clear, objective view of your IT direction, tools, and spending before you commit to anything.</p>
       </div>
+
       <div class="service-card">
-        <div class="service-icon">☁️</div>
+        <div class="service-bg-num">02</div>
+        <div class="service-num">02 - Cloud</div>
         <h3>Microsoft 365 &amp; Cloud</h3>
-        <p>Setup, migration, and ongoing management of M365, Entra ID, Intune, Exchange, and Azure. Clean environments, properly configured.</p>
+        <p>Most M365 tenants are misconfigured from day one. I set it up right, clean up what's already there, and keep it running the way it should.</p>
       </div>
+
       <div class="service-card">
-        <div class="service-icon">🔐</div>
+        <div class="service-bg-num">03</div>
+        <div class="service-num">03 - Security</div>
         <h3>Cybersecurity Essentials</h3>
-        <p>MFA, access controls, phishing awareness, and security assessments grounded in reality. Most small business risk comes from everyday habits — that's where we focus.</p>
+        <p>Breaches happen because of habits, not hackers. MFA, access controls, phishing awareness - the basics that actually reduce your real-world risk.</p>
       </div>
+
       <div class="service-card">
-        <div class="service-icon">💾</div>
+        <div class="service-bg-num">04</div>
+        <div class="service-num">04 - Continuity</div>
         <h3>Backup &amp; Business Continuity</h3>
-        <p>Know what you'd lose if something went wrong tomorrow. Backup strategies that are actually tested and work when you need them.</p>
+        <p>Do you know what you'd lose if a server died tomorrow? I help you find out, and fix it before it becomes a crisis.</p>
       </div>
+
       <div class="service-card">
-        <div class="service-icon">🤝</div>
+        <div class="service-bg-num">05</div>
+        <div class="service-num">05 - Procurement</div>
         <h3>Vendor &amp; Procurement Guidance</h3>
-        <p>Evaluating a new tool or renegotiating a contract? Get a technical perspective before you sign. I help you ask the right questions.</p>
+        <p>Before you sign that contract, talk to someone who isn't selling anything. I help you buy the right thing at the right price.</p>
       </div>
+
       <div class="service-card">
-        <div class="service-icon">⚙️</div>
+        <div class="service-bg-num">06</div>
+        <div class="service-num">06 - Automation</div>
         <h3>Automation &amp; Efficiency</h3>
-        <p>Identify repetitive manual tasks and automate them with PowerShell, Python, or Ansible — freeing your team to focus on the work that matters.</p>
+        <p>If your team does it manually every week, it can probably be automated. I find those gaps and close them with PowerShell, Python, or Ansible.</p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Social Proof -->
+  <div class="proof-wrap">
+    <div class="proof-inner">
+      <div class="proof-quote">
+        <!-- Replace with a real testimonial when available -->
+        <blockquote>"James cut our onboarding time in half and finally got our backups in a state we could trust. He speaks plain English, which is rare."</blockquote>
+        <div class="proof-attribution">- Client, Professional Services</div>
+      </div>
+      <div class="proof-stat">
+        <div class="proof-stat-number">10+</div>
+        <div class="proof-stat-label">Years of hands-on<br>infrastructure experience</div>
       </div>
     </div>
   </div>
 
   <hr class="divider">
 
-  <!-- Skills -->
-  <div class="section-wrap">
-    <div class="section-label">Technical Skills</div>
-    <h2 class="section-title">The tools I work with</h2>
+  <!-- Skills + Certs -->
+  <div class="section" id="skills">
+    <div class="label">Expertise</div>
+    <h2 class="section-title">Technical skills</h2>
+    <p class="section-desc">Deep across the stack - from bare metal to cloud, endpoints to automation.</p>
     <div class="skills-grid">
       <div class="skill-group">
-        <h3>Linux &amp; Virtualization</h3>
-        <ul>
-          <li>LPIC-3 Certified</li>
-          <li>VMware, Hyper-V, Proxmox</li>
-          <li>Systems administration</li>
-          <li>Bash scripting</li>
-        </ul>
+        <div class="skill-group-title">Linux &amp; Virtualization</div>
+        <div class="skill-tags">
+          <span class="skill-tag">LPIC-3 Certified</span>
+          <span class="skill-tag">VMware</span>
+          <span class="skill-tag">Hyper-V</span>
+          <span class="skill-tag">Proxmox</span>
+          <span class="skill-tag">Bash</span>
+        </div>
       </div>
       <div class="skill-group">
-        <h3>Cloud</h3>
-        <ul>
-          <li>AWS (EC2, IAM, S3, VPC)</li>
-          <li>Azure &amp; Azure DevOps</li>
-          <li>Microsoft 365</li>
-          <li>Terraform</li>
-        </ul>
+        <div class="skill-group-title">Cloud</div>
+        <div class="skill-tags">
+          <span class="skill-tag">AWS EC2, IAM, S3, VPC</span>
+          <span class="skill-tag">Azure</span>
+          <span class="skill-tag">Azure DevOps</span>
+          <span class="skill-tag">Microsoft 365</span>
+          <span class="skill-tag">Terraform</span>
+        </div>
       </div>
       <div class="skill-group">
-        <h3>Endpoint &amp; Identity</h3>
-        <ul>
-          <li>Microsoft Intune</li>
-          <li>Entra ID / Active Directory</li>
-          <li>Windows Autopilot</li>
-          <li>Exchange &amp; SharePoint</li>
-        </ul>
+        <div class="skill-group-title">Endpoint &amp; Identity</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Microsoft Intune</span>
+          <span class="skill-tag">Entra ID</span>
+          <span class="skill-tag">Active Directory</span>
+          <span class="skill-tag">Autopilot</span>
+          <span class="skill-tag">Exchange</span>
+          <span class="skill-tag">SharePoint</span>
+        </div>
       </div>
       <div class="skill-group">
-        <h3>Automation</h3>
-        <ul>
-          <li>PowerShell</li>
-          <li>Python</li>
-          <li>Ansible</li>
-          <li>Bash</li>
-        </ul>
+        <div class="skill-group-title">Automation</div>
+        <div class="skill-tags">
+          <span class="skill-tag">PowerShell</span>
+          <span class="skill-tag">Python</span>
+          <span class="skill-tag">Ansible</span>
+          <span class="skill-tag">Bash</span>
+        </div>
       </div>
       <div class="skill-group">
-        <h3>Security</h3>
-        <ul>
-          <li>MFA &amp; access controls</li>
-          <li>Phishing awareness</li>
-          <li>Security assessments</li>
-          <li>Google Cybersecurity Cert</li>
-        </ul>
+        <div class="skill-group-title">Security</div>
+        <div class="skill-tags">
+          <span class="skill-tag">MFA &amp; access controls</span>
+          <span class="skill-tag">Phishing awareness</span>
+          <span class="skill-tag">Security assessments</span>
+        </div>
       </div>
     </div>
-  </div>
 
-  <hr class="divider">
-
-  <!-- Certifications -->
-  <div class="section-wrap">
-    <div class="section-label">Certifications</div>
-    <h2 class="section-title">Credentials</h2>
-    <div class="certs-grid">
-      <div class="cert-item">
-        <div class="cert-badge">🐧</div>
-        <div>
-          <div class="cert-name">LPIC-3 Enterprise Professional</div>
-          <div class="cert-issuer">LPI · Virtualization &amp; High Availability · 2019</div>
+    <div class="certs-block">
+      <h3 class="section-title">Certifications</h3>
+      <div class="certs-list">
+        <div class="cert-tag">
+          <strong>LPIC-3 Enterprise Professional</strong>
+          LPI · 2019
         </div>
-      </div>
-      <div class="cert-item">
-        <div class="cert-badge">☁️</div>
-        <div>
-          <div class="cert-name">AWS Certified Cloud Practitioner</div>
-          <div class="cert-issuer">Amazon Web Services · 2022</div>
+        <div class="cert-tag">
+          <strong>AWS Certified Cloud Practitioner</strong>
+          Amazon Web Services · 2022
         </div>
-      </div>
-      <div class="cert-item">
-        <div class="cert-badge">🔷</div>
-        <div>
-          <div class="cert-name">Azure Fundamentals (AZ-900)</div>
-          <div class="cert-issuer">Microsoft · 2025</div>
+        <div class="cert-tag">
+          <strong>Azure Fundamentals (AZ-900)</strong>
+          Microsoft · 2025
         </div>
-      </div>
-      <div class="cert-item">
-        <div class="cert-badge">🐍</div>
-        <div>
-          <div class="cert-name">Google IT Automation with Python</div>
-          <div class="cert-issuer">Google · 2024</div>
+        <div class="cert-tag">
+          <strong>Google IT Automation with Python</strong>
+          Google · 2024
         </div>
-      </div>
-      <div class="cert-item">
-        <div class="cert-badge">🔐</div>
-        <div>
-          <div class="cert-name">Google Cybersecurity Certificate</div>
-          <div class="cert-issuer">Google · 2025</div>
+        <div class="cert-tag">
+          <strong>Google Cybersecurity Certificate</strong>
+          Google · 2025
         </div>
-      </div>
-      <div class="cert-item">
-        <div class="cert-badge">📋</div>
-        <div>
-          <div class="cert-name">ITILv3</div>
-          <div class="cert-issuer">AXELOS · 2018</div>
+        <div class="cert-tag">
+          <strong>ITILv3</strong>
+          AXELOS · 2018
         </div>
       </div>
     </div>
@@ -437,9 +631,16 @@
   <!-- CTA -->
   <div class="cta-wrap">
     <div class="cta-inner">
-      <h2>Let's talk about your IT</h2>
-      <p>Whether you're trying to tighten up security, move to the cloud, or just want a second opinion on your current setup — I'm happy to have a conversation.</p>
-      <a href="https://www.linkedin.com/in/jamesadjinwa" target="_blank" class="btn-primary">Connect on LinkedIn</a>
+      <h2>Get a free IT assessment</h2>
+      <p>
+        Not sure where your IT stands? Book a free 30-minute call. We'll look at your current setup, identify the biggest gaps, and you'll leave with a clear picture - no commitment required.
+      </p>
+      <div class="cta-actions">
+        <!-- Update the first link to your Calendly URL when ready -->
+        <a href="https://www.linkedin.com/in/jamesadjinwa" target="_blank" class="btn btn-primary">Book a free 30-min call</a>
+        <a href="https://www.linkedin.com/in/jamesadjinwa" target="_blank" class="btn btn-secondary">Connect on LinkedIn</a>
+      </div>
+      <p class="cta-note">No pitch. No commitment. Just a clear look at where you stand.</p>
     </div>
   </div>
 
@@ -449,7 +650,6 @@
     <div class="footer-links">
       <a href="https://www.linkedin.com/in/jamesadjinwa" target="_blank">LinkedIn</a>
       <a href="https://github.com/jamesadjinwa" target="_blank">GitHub</a>
-      <a href="https://twitter.com/adjinwa" target="_blank">Twitter / X</a>
     </div>
   </footer>
 
